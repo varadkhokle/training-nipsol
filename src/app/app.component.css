@@ -1,0 +1,35 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  font-size: 20px;
+}
+.top {
+  padding-left: 10px;
+  padding-top: 1.3rem;
+  padding-bottom: 7px;
+  color: white;
+  background-color: rgb(65, 62, 62);
+  font-size: 15px;
+}
+.nipsol {
+  margin: 5px;
+  font-family: "Fredoka One";
+  font-size: 40px;
+}
+
+.middle {background-color: #9e6df7;
+  /* display: flex; */
+  color: white;
+
+  text-align: right;
+
+}
+.imgg{ vertical-align: middle;
+  
+}
+.text{ padding: 5px;
+}
+.last {
+  margin: 25px;
+  padding: 5px;
+}
