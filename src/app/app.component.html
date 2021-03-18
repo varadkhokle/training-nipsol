@@ -11,72 +11,95 @@
 </div>
 
 <div class="middle">
-   <div class="homeuser">
-     <a href="">
-     HOME
-   </a>
-   <a href="">
-     +ADD USER
-   </a>
-   </div>
+  <div class="homeuser">
+    <a (click)="isHomeVisible=true;">
+      HOME
+    </a>
+    <a (click)="isHomeVisible=false;">
+      +ADD USER
+    </a>
+  </div>
   <div class="nipsollogo"><img class="imgg" src="https://trello-attachments.s3.amazonaws.com/6048607c61de5b708f69ce86/6048607c61de5b708f69ce91/x/20b01d0aea8268981a84c57b46c55355/nipsol_favicon.png">
 
 
-  <span class="text">www.nipsol.com</span>
-</div>
+    <span class="text">www.nipsol.com</span>
+  </div>
 
 </div>
-
-<div class="user"><strong>User Registration</strong></div>
-<div class="formside container d-flex justify-content-center align-items-center">
-  <form>
-    <div class="row mb-3">
-      <label for="inputEmail3" class="col-sm-2 col-form-label">Name</label>
-      <div class="col-sm-10">
-        <input type="text" class="form-control mx-4" id="name">
+<div *ngIf="!isHomeVisible">
+  <div class="user"><strong>User Registration</strong></div>
+  <div class="formside container d-flex justify-content-center align-items-center">
+    <form>
+      <div class="row mb-3">
+        <label for="inputEmail3" class="col-sm-2 col-form-label">Name</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control mx-4" id="name">
+        </div>
       </div>
-    </div>
-    <div class="row mb-3">
-      <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
-      <div class="col-sm-10">
-        <input type="email" class="form-control mx-4" id="inputEmail3">
+      <div class="row mb-3">
+        <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+        <div class="col-sm-10">
+          <input type="email" class="form-control mx-4" id="inputEmail3">
+        </div>
       </div>
-    </div>
-    <div class="row mb-3">
-      <label for="inputEmail3" class="col-sm-2 col-form-label">Phone</label>
-      <div class="col-sm-10">
-        <input type="number" class="form-control mx-4" id="inputEmail1">
+      <div class="row mb-3">
+        <label for="inputEmail3" class="col-sm-2 col-form-label">Phone</label>
+        <div class="col-sm-10">
+          <input type="number" class="form-control mx-4" id="inputEmail1">
+        </div>
       </div>
-    </div>
-     <div class="row mb-3">
-      <label for="inputEmail3" class="col-sm-2 col-form-label">Address</label>
-      <div class="col-sm-10">
-        <input type="text" class="form-control mx-4" id="name">
+      <div class="row mb-3">
+        <label for="inputEmail3" class="col-sm-2 col-form-label">Address</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control mx-4" id="name">
+        </div>
       </div>
-    </div>
-    <fieldset class="row mb-3">
-      <legend class="col-form-label col-sm-2 pt-0">Gender</legend>
-      <div class="col-sm-10">
-        <span class="form-check  form-check-inline">
+      <fieldset class="row mb-3">
+        <legend class="col-form-label col-sm-2 pt-0">Gender</legend>
+        <div class="col-sm-10">
+          <span class="form-check  form-check-inline">
           <input class="form-check-input mx-2" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
           <label class="form-check-label" for="gridRadios1">
           Male
         </label>
         </span>
-        <span class="form-check form-check-inline">
+          <span class="form-check form-check-inline">
           <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
           <label class="form-check-label" for="gridRadios2">
          Female
         </label>
         </span>
 
-      </div>
-    </fieldset>
+        </div>
+      </fieldset>
 
-    <span >
+      <span >
     <button type="reset" class="btn btn-dark btn-lg m-3 px-4" >Reset</button></span>
-    <button type="submit" class="btn btn-primary btn-lg px-3" style="  background-color:#9e6df7; ">Submit</button> 
-    
-  </form>
+      <button type="submit" class="btn btn-primary btn-lg px-3" style="  background-color:#9e6df7; ">Submit</button>
 
+    </form>
+
+  </div>
+</div>
+<div *ngIf="isHomeVisible" class="last">
+  <strong>Sailent Features of Nipsol</strong><br><br>
+  <ol>
+    <li>
+      It offers Platfrom Independent application for all restaurant food offering needs.
+    </li>
+    <li>
+      A nipsol certified restaurant marked as Safe to Dine by most customers across India.
+    </li>
+    <li>
+      Nipsol payment system can be integrated at 0% charges.hello
+    </li>
+    <li>
+      With QR based ordering and E-invoice functionaity,human intervention is reduced considerably making it a
+      contactless alternative to conventional ordering mechanisms.
+    </li>
+    <li>
+      Currently nipsol has marked its presence in over 50 Restaurants/Cafe across 50 cities within a span of 8 weeks
+      since its launch. </li>
+
+  </ol>
 </div>
