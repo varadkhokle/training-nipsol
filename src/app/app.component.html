@@ -6,16 +6,16 @@
     Hello
   </div>
   <div>
-    <input type="text" class="form-control mx-2" id="inputEmail3" value="{{nameOfUser}}">
+    <input type="text" class="form-control mx-2" id="inputEmail3" (keyup)="showName($event)" value="{{nameOfUser}}">
   </div>
 </div>
 
 <div class="middle">
   <div class="homeuser">
-    <a (click)="isHomeVisible=true;">
+    <a class="active" (click)="isHomeVisible=true;" [ngStyle]="{'color': isHomeVisible? 'white' : 'Black' }">
       HOME
     </a>
-    <a (click)="isHomeVisible=false;">
+    <a class="active" (click)="isHomeVisible=false;" [ngStyle]="{'color': isHomeVisible? 'Black' : 'white' }">
       +ADD USER
     </a>
   </div>
