@@ -3,20 +3,23 @@
   integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 <div class="top">
   <div class="nipsol">
-    Hello
+    nipsol
   </div>
   <div>
-    <input type="text" class="form-control mx-2" id="inputEmail3" (keyup)="showName($event)" value="{{nameOfUser}}">
+    CONTACTLESS ORDERING
   </div>
 </div>
 
 <div class="middle">
   <div class="homeuser">
-    <a class="active" (click)="isHomeVisible=true;" [ngStyle]="{'color': isHomeVisible? 'white' : 'Black' }">
+    <a class=" active" (click)="isVisible=1;" [ngClass]="{'currentActive' : isVisible==1?true:false}"  >
       HOME
     </a>
-    <a class="active" (click)="isHomeVisible=false;" [ngStyle]="{'color': isHomeVisible? 'Black' : 'white' }">
+     <a (click)="isVisible=2;" [ngClass]="{'currentActive' : isVisible==2?true:false}"  >
       +ADD USER
+    </a>
+      <a (click)="isVisible=3;" [ngClass]="{'currentActive' : isVisible==3?true:false}"  >
+      ALL USERS
     </a>
   </div>
   <div class="nipsollogo"><img class="imgg" src="https://trello-attachments.s3.amazonaws.com/6048607c61de5b708f69ce86/6048607c61de5b708f69ce91/x/20b01d0aea8268981a84c57b46c55355/nipsol_favicon.png">
@@ -26,30 +29,31 @@
   </div>
 
 </div>
-<div *ngIf="!isHomeVisible">
+<div *ngIf="isVisible==2">
   <div class="user"><strong>User Registration</strong></div>
   <div class="formside container d-flex justify-content-center align-items-center">
-    <form>
+    <form [formGroup]="userDetails" (ngSubmit)="collectData()">
       <div class="row mb-3">
         <label for="inputEmail3" class="col-sm-2 col-form-label">Name</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control mx-4" id="name" (keyup)="showName($event)" value="{{nameOfUser}}" >
+          <input type="text" formControlName="userName" class="form-control mx-4" id="name" (keyup)="showName($event)" value="{{nameOfUser}}" >
         </div>
       </div>
       <div class="row mb-3">
         <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
         <div class="col-sm-10">
-          <input type="email" class="form-control mx-4" id="inputEmail3">
+          <input type="email" formControlName="userEmail" class="form-control mx-4" id="inputEmail3">
         </div>
       </div>
       <div class="row mb-3">
         <label for="inputEmail3" class="col-sm-2 col-form-label">Phone</label>
         <div class="col-sm-10">
-          <input type="number" class="form-control mx-4" id="inputEmail1">
+          <input type="number" formControlName="userPhone"  class="form-control mx-4" id="inputEmail1">
         </div>
+        <span class="validation-msg"*ngIf="phone.invalid &&phone.touched">Invalid Mobile Number</span>
       </div>
       <div class="row mb-3">
-        <label for="inputEmail3" class="col-sm-2 col-form-label">Address</label>
+        <label for="inputEmail3"  formControlName="userAddress" class="col-sm-2 col-form-label">Address</label>
         <div class="col-sm-10">
           <input type="text" class="form-control mx-4" id="name">
         </div>
@@ -58,7 +62,7 @@
         <legend class="col-form-label col-sm-2 pt-0">Gender</legend>
         <div class="col-sm-10">
           <span class="form-check  form-check-inline">
-          <input class="form-check-input mx-2" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+          <input class="form-check-input mx-2"  formControlName="userAddress"type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
           <label class="form-check-label" for="gridRadios1">
           Male
         </label>
@@ -81,7 +85,7 @@
 
   </div>
 </div>
-<div *ngIf="isHomeVisible" class="last">
+<div *ngIf="isVisible==1" class="last">
   <strong>Sailent Features of Nipsol</strong><br><br>
   <ol>
     <li>
@@ -102,4 +106,22 @@
       since its launch. </li>
 
   </ol>
+</div>
+<div class="d-flex" *ngIf="isVisible==3">
+
+<div class="container container_flex" *ngFor="let item of userData; let i=index;">
+    <div class="row pt-4 pl-3 ">
+      <div class="col-sm-8">
+        <div class="card myShadow" >
+          <div class="card-body">
+            <h4>{{i+1}}. {{item.userName}} </h4>
+            <h4>{{item.userEmail}} </h4>
+            <h4>{{item.userPhone}}</h4>
+            <h4>{{item.userAddress}}</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+
 </div>
