@@ -12,20 +12,29 @@ export class AppComponent {
   isVisible = 1;
   userDetails = new FormGroup({
     userName: new FormControl(),
-    userEmail: new FormControl('',Validators.required),
-    userPhone: new FormControl('',[Validators.required, Validators.pattern("[0-9 ]{10}")]),
-    userAddress: new FormControl(),
-  }) 
-  userData=[];
-  
-  get email(){return this.userDetails.get('userEmail');}
-  get phone(){return this.userDetails.get('userPhone');}
+    userEmail: new FormControl("", Validators.required),
+    userPhone: new FormControl("", [
+      Validators.required,
+      Validators.pattern("[0-9 ]{10}")
+    ]),
+    userAddress: new FormControl()
+  });
+  userData = [];
+
+  get email() {
+    return this.userDetails.get("userEmail");
+  }
+  get phone() {
+    return this.userDetails.get("userPhone");
+  }
 
   showName(nameIn) {
     this.nameOfUser = nameIn.target.value;
   }
-   collectData()
-  {
+  collectData() {
     this.userData.push(this.userDetails.value);
+  }
+  submittedSucess() {
+    alert("Successfully submitted");
   }
 }
